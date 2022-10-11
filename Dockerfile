@@ -40,7 +40,11 @@ RUN bash -c "$(curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/i
     && nvm install $NODE_VERSION \
     && nvm alias default $NODE_VERSION \
     && nvm use default \
-    && nvm cache clear
+    && nvm cache clear \
+    && corepack enable \
+    && node --version \
+    && npm --version \
+    && yarn --version
 
 USER root
 
