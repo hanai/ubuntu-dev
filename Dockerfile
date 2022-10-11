@@ -6,6 +6,10 @@ ENV NODE_VERSION 16.17.1
 #RUN sed -i 's|http:\/\/ports.ubuntu.com|http:\/\/mirrors.aliyun.com|g' /etc/apt/sources.list
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
+    apt-utils \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
     locales \
     && locale-gen en_US.UTF-8 \
     && update-locale LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 \
@@ -26,7 +30,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     sudo \
     wget \
     dialog \
-    apt-utils \
     libssl-dev \
     iputils-ping \
     openssh-server \
