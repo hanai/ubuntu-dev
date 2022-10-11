@@ -3,13 +3,14 @@ FROM ubuntu:22.04
 ENV DEBIAN_FRONTEND noninteractive
 ENV NODE_VERSION 16.17.1
 ENV LANG=en_US.UTF-8
+ENV LC_ALL=$LANG
 
 #RUN sed -i 's|http:\/\/ports.ubuntu.com|http:\/\/mirrors.aliyun.com|g' /etc/apt/sources.list
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     locales \
     && locale-gen en_US.UTF-8 \
-    && update-locale LANG=en_US.UTF-8 LC_CTYPE=en_US.UTF-8 \
+    && update-locale LANG=$LANG LC_ALL=$LANG \
     && rm -rf /var/lib/apt/lists/*
 RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
