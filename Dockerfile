@@ -14,7 +14,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     vim \
     zsh \
     curl \
+    htop \
     less \
+    lsof \
     sudo \
     wget \
     apt-utils \
