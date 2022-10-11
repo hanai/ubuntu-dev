@@ -10,7 +10,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     locales \
     && locale-gen en_US.UTF-8 \
     && update-locale LANG=en_US.UTF-8 \
-    && apt-get install -y --no-install-recommends \
+    && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     tar \
     vim \
