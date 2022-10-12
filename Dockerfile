@@ -30,6 +30,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     sudo \
     wget \
     dialog \
+    iproute2 \
     libssl-dev \
     iputils-ping \
     openssh-server \
