@@ -66,8 +66,9 @@ RUN bash -c "$(curl -fsSL https://github.com/pyenv/pyenv-installer/raw/master/bi
     && echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc \
     && echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc \
     && echo 'eval "$(pyenv init -)"' >> ~/.bashrc \
-    && bash -c "pyenv install $PY_VERSION" \
-    && bash -c "pyenv global $PY_VERSION"
+    && . ~/.bashrc \
+    && pyenv install $PY_VERSION \
+    && pyenv global $PY_VERSION
 
 USER root
 
