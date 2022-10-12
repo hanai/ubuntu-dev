@@ -62,8 +62,7 @@ RUN bash -c "$(curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/i
     && yarn --version
 
 ENV PY_VERSION 3.10.8
-RUN RUN bash -c "$(curl -fsSL https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer)" \
-    && exec $SHELL \
+RUN bash -c "$(curl -fsSL https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer)" \
     && pyenv install $PY_VERSION \
     && pyenv global $PY_VERSION
 
