@@ -19,6 +19,8 @@ ENV LANG=en_US.UTF-8
 ENV LC_ALL=$LANG
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
+    g++ \
+    gcc \
     git \
     tar \
     vim \
@@ -27,14 +29,16 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     htop \
     less \
     lsof \
+    make \
     sudo \
     wget \
+    patch \
     dialog \
+    openssl \
     iproute2 \
     libssl-dev \
     iputils-ping \
     openssh-server \
-    build-essential \
     ca-certificates \
     python3-minimal \
     && rm -rf /var/lib/apt/lists/*
