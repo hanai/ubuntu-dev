@@ -28,6 +28,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     htop \
     less \
+    llvm \
     lsof \
     make \
     sudo \
@@ -40,6 +41,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     iputils-ping \
     openssh-server \
     ca-certificates \
+    python3-minimal \
     && rm -rf /var/lib/apt/lists/*
 
 RUN useradd -m -G adm,users,sudo,audio,video -p $(echo password | openssl passwd -1 -stdin) -s /usr/bin/zsh dev
@@ -67,9 +69,6 @@ RUN bash -c "$(curl -fsSL https://github.com/pyenv/pyenv-installer/raw/master/bi
     && echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc \
     && echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc \
     && echo 'eval "$(pyenv init -)"' >> ~/.bashrc
-#    && eval "$(pyenv init -)" \
-#    && pyenv install $PY_VERSION \
-#    && pyenv global $PY_VERSION
 
 USER root
 
