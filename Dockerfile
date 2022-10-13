@@ -37,7 +37,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     dialog \
     openssl \
     iproute2 \
-    libssl-dev \
     iputils-ping \
     openssh-server \
     ca-certificates \
