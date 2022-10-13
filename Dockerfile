@@ -62,11 +62,12 @@ RUN bash -c "$(curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/i
     && yarn --version
 
 ENV PY_VERSION 3.10.8
+ENV PYENV_ROOT "/home/dev/.pyenv"
+ENV PATH "$PYENV_ROOT/bin:${PATH}"
 RUN bash -c "$(curl -fsSL https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer)" \
     && echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc \
     && echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc \
     && echo 'eval "$(pyenv init -)"' >> ~/.bashrc \
-    && cat ~/.bashrc \
     && . ~/.bashrc \
     && pyenv install $PY_VERSION \
     && pyenv global $PY_VERSION
